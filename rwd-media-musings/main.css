@@ -11,7 +11,7 @@
 }
 
 body {
-	background-color: linear-gradient(white, #818181);
+	background: linear-gradient(white, #818181); /* gradients are added with background not background-color */
 	height: 100vh;
 }
 	
@@ -104,6 +104,7 @@ main.homepage {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-gap: 1em;
+   padding: 1rem;
 }
 
 article.blog {
@@ -119,7 +120,7 @@ article.blog h2 { /* ← blog heading */
 }
 
 article.blog p { /* ← blog text */
-	font-size: 125%;
+	font-size: 135%;
 	line-height: 1.3;
 }
 
@@ -275,17 +276,22 @@ footer p {
 	}
 
 	section.campus {
-		width: 100%; 
+		grid-template-columns: 1fr 1fr 1fr; /* you didn't define this grid */
 	}
 
 	section.campus figure {
 		display: grid; 
-		grid-template-columns: 1fr 1fr;
-		grid-gap: .3em;
+		grid-template-columns: 1fr 3fr;
+		grid-gap: 1em;
+	}
+
+   section.campus figcaption {
+		font-size: 100%;
+      text-align: left;
 	}
 
 	article.blog h2 {
-		font-size: 150%;
+		font-size: 175%;
 	}
 
 	article.blog p {
@@ -307,9 +313,7 @@ footer p {
 		font-size: 150%;
 	}
 
-	section.campus figcaption {
-		font-size: 40%;
-	}
+	
 }
 
 
@@ -320,13 +324,13 @@ footer p {
 
 	div.wrapper {
 		width: 100%;
-		margin: none;
+		margin: 0; 
 	}
 
 
 	header {
-		padding: 10em;
-		margin: none;
+		padding: 1rem; /* 10em is a huge amount of space for a small phone screen! */
+		margin: 0;
 	}
 
 	nav.topnav {
@@ -339,7 +343,7 @@ footer p {
 	}
 
 	nav.topnav li {
-		border-bottom: 1px;
+		border-bottom: 1px solid silver; /* you need all 3 properties */
 	}
 
 	nav.topnav li:last-of-type {
@@ -347,37 +351,38 @@ footer p {
 	}
 
 	main.homepage {
-		grid-column: 1/2;
 		grid-template-columns: 1fr; 
 	}
 
 	article.blog {
-		font-size: 2rem;
-		line-height: 2%;
-		grid-column: 1/1;
+		font-size: 100%;
+		line-height: 1.3; /* Your text was smushed because you had it set to 2%. Use a decimal instead. */
+		/* grid-column: 1/2; */
 	}
 
-	main.homepage.aside {
+	main.homepage aside { /* aside is an ELEMENT but you had a . before it which indicates a CLASS */
 		display: none;
 	}
    
 	section.campus {
 		grid-gap: 0.5rem;
+      grid-template-columns: 1fr; /* you didn't make a new grid for this layout */
 	}
 
 	section.campus h3 {
 		font-size: 1.5rem;
+      margin-top: 1rem;
 	}
 
 	section.campus figure {
 		background-color: #ffd7db;
-		padding-right: 4em;
-		border-radius: 7em;
+		border-radius: 2em;
 	}
 
 
 	section.campus figcaption {
-		font-size: 2em;
-		line-height: 4em; 
+		font-size: 150%;
+		line-height: 1.3; /* 4em is 4 spaces */
+      padding: 1rem;
 	}
 }
